@@ -52,7 +52,7 @@ const calcTempAmplitudeNew = function (t1, t2) {
 
 const amplitudeNew = calcTempAmplitudeNew([3, 5, 1], [9, 0, 5]);
 console.log(amplitudeNew);
-*/
+
 
 // KELVIN
 const measureKelvin = function () {
@@ -61,7 +61,8 @@ const measureKelvin = function () {
     unit: 'celsius',
     //fix
 
-    value: Number(prompt('Degrees Celsius:')),
+    // value: Number(prompt('Degrees Celsius:')),
+    value: 10,
   };
 
   console.log(measurement);
@@ -76,3 +77,39 @@ const measureKelvin = function () {
 };
 
 console.log(measureKelvin());
+
+const calcTempAmplitudeBug = function (t1, t2) {
+  const temps = t1.concat(t2);
+  console.log(temps);
+  let max = 0;
+  let min = 0;
+  for (let i = 0; i < temps.length; i++) {
+    const curTemp = temps[i];
+    if (typeof curTemp !== 'number') continue;
+
+    debugger;
+    if (curTemp > max) max = curTemp;
+    if (curTemp < min) min = curTemp;
+  }
+  console.log(max, min);
+  return max - min;
+};
+
+const amplitudeBug = calcTempAmplitudeBug([3, 5, 1], [9, 4, 5]);
+console.log(amplitudeBug);
+
+*/
+
+//coding challenge #1
+const data1 = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
+
+const printForecast = function (arr) {
+  let str = '';
+  for (let i = 0; i < arr.length; i++) {
+    str += `${arr[i]}C in ${i + 1} days ... `;
+  }
+  console.log('...' + str);
+};
+
+printForecast(data1);
